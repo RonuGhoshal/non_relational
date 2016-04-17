@@ -16,3 +16,4 @@ jQuery ->
       $('.cart-count').html(data)
       $this.find('span').html(new_target)
       $this.data('target', new_target)
+

@@ -3,13 +3,16 @@ class BooksController < ApplicationController
 
 
   def index
+    p "******************"
+    p $redis.keys
+    p $redis.smembers("cart1")
+    p "******************"
     @books = Book.all
   end
 
   # GET /books/1
   # GET /books/1.json
   def show
-    p params
     @book = Book.find(params[:id])
     @cart_action = @book.cart_action current_user.try :id
   end
