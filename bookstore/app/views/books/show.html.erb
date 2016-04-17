@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong>Release year:</strong>
+  <%= @book.release_year %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @book.price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @book.description %>
+</p>
+
+<% if signed_in? %>
+  <%=link_to "", class: "button", data: {target: @cart_action, addUrl: add_to_cart_path(@book), removeUrl: remove_from_cart_path(@book)} do%>
+    <i class="fi-shopping-cart"></i>
+    <span><%=@cart_action%></span> Cart
+  <%end%>
+<% end %>
+
+<%= link_to 'Back', books_path %>

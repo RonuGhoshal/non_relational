@@ -1,0 +1,23 @@
+<div class="top-bar">
+<div class="top-bar-left">
+<ul class="menu">
+<li class="menu-text">Bookstore</li>
+</ul>
+</div>
+<div class="top-bar-right">
+  <ul class="right">
+    <%if signed_in?%>
+      <li><%=link_to current_user.email, edit_user_registration_path%></li>
+      <li><%=link_to "Logout", destroy_user_session_path, method: :delete%></li>
+      <%= link_to cart_path do%>
+        <i class="fi-shopping-cart"></i>
+        My Cart
+        (<span class="cart-count"><%=current_user.cart_count%></span>)
+      <%end%>
+    <%else%>
+      <li><%=link_to "Register", new_user_registration_path%></li>
+      <li><%=link_to "Login", new_user_session_path%></li>
+    <%end%>
+  </ul>
+</div>
+</div>
